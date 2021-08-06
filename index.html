@@ -194,7 +194,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-08-06 14:25:15 / 修改时间：15:16:16" itemprop="dateCreated datePublished" datetime="2021-08-06T14:25:15+08:00">2021-08-06</time>
+      <time title="创建时间：2021-08-06 14:25:15 / 修改时间：15:26:10" itemprop="dateCreated datePublished" datetime="2021-08-06T14:25:15+08:00">2021-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -224,7 +224,7 @@
 <h1 id="博客将来要有的功能"><a class="markdownIt-Anchor" href="#博客将来要有的功能"></a> 博客将来要有的功能</h1>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true" /><label for="cbx_0"> 图片能直接用md语法索引</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true" /><label for="cbx_1"> 解决md对于check box的支持</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" checked="true" disabled="true" /><label for="cbx_1"> 解决md对于check box的支持</label></li>
 <li class="task-list-item"><input type="checkbox" id="cbx_2" checked="true" disabled="true" /><label for="cbx_2"> 去掉TODOs里对于md文档的识别</label></li>
 <li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true" /><label for="cbx_3"> 侧边要有分类栏和目录</label></li>
 <li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true" /><label for="cbx_4"> 增加评论区</label></li>
@@ -233,6 +233,7 @@
 <p>主要参考：<a target="_blank" rel="noopener" href="https://retzzz.github.io/9cbcca7a/">https://retzzz.github.io/9cbcca7a/</a></p>
 <p>搭建的过程主要按照上面这篇blog<br />
 有一个坑是，文章里提到的theme next，已经不更新了，在后续对数学公式的支持很差。主要开发者换了一个地方，从<a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">https://github.com/next-theme/hexo-theme-next</a>这个仓库安装比较好。后续基本按照上面的blog进行即可</p>
+<p>我使用的数学公式支持是hexo-renderer-markdown-it-plus</p>
 <h1 id="功能实现"><a class="markdownIt-Anchor" href="#功能实现"></a> 功能实现</h1>
 <h2 id="图片直接用md语法索引"><a class="markdownIt-Anchor" href="#图片直接用md语法索引"></a> 图片直接用md语法索引</h2>
 <p>参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">官方文档</a>，无法直接实现用md语法索引图片，而是需要用<code>&#123;% asset_img example.jpg This is an example image %&#125;</code>来实现。或者安装<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>实现。</p>
@@ -246,6 +247,13 @@
 <code>![alt text](./your_blog/your_image)</code></p>
 <p>索引一张小图片：<br />
 <img src="/2021/08/06/hexo-gitpages-katex%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/img1.png" alt="" /></p>
+<h2 id="解决md对于check-box的支持"><a class="markdownIt-Anchor" href="#解决md对于check-box的支持"></a> 解决md对于check box的支持</h2>
+<p>由于我使用的是hexo-renderer-markdown-it-plus，这个里面原先不带对checkbox的支持，查询<a target="_blank" rel="noopener" href="https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus">官方文档</a>发现，可以自己给增加plugin，步骤如下：</p>
+<ol>
+<li>安装markdown-it-task-checkbox，<code>npm install markdown-it-task-checkbox --save</code></li>
+<li>在<code>hexo/_config.yml</code>里增加： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">markdown_it_plus:</span><br><span class="line">plugins:</span><br><span class="line">    - plugin: </span><br><span class="line">        name: markdown-it-task-checkbox</span><br><span class="line">        enable: true</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
